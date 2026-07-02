@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="smart_servo">
+  <link name="base_link"/>
+  <link name="servo_arm"/>
+  <link name="door"/>
+
+  <joint name="servo_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="servo_arm"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="door_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="door"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <ros2_control name="SmartServoSystem" type="system">
+    <hardware>
+      <plugin>smart_servo_hardware/SmartServoSystem</plugin>
+    </hardware>
+    <joint name="servo_joint">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="door_joint">
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+</robot>

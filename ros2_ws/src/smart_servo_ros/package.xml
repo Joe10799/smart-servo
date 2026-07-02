@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>smart_servo_ros</name>
+  <version>0.1.0</version>
+  <description>Smart servo bridge and keyboard control</description>
+  <maintainer email="yousef@example.com">Yousef</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>velocity_controllers</exec_depend>
+  <exec_depend>smart_servo_hardware</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

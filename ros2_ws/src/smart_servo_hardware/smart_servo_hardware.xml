@@ -1,0 +1,10 @@
+<library path="smart_servo_hardware">
+  <class
+    name="smart_servo_hardware/SmartServoSystem"
+    type="smart_servo_hardware::SmartServoSystem"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Connects the ros2_control Resource Manager to the ESP32 bridge topics.
+    </description>
+  </class>
+</library>

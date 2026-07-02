@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+firmware/smart_servo_esp32/.pio/
+firmware/smart_servo_esp32/.vscode/
+
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
