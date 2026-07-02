@@ -458,17 +458,3 @@ A short continuous recording should show:
 7. Reset followed by endpoint calibration.
 8. Torque rising and both endpoint markers appearing.
 9. Movement stopping at both calibrated limits.
-
-## Submission package
-
-Submit:
-
-1. A link to the source repository, or a source archive containing this
-   project without generated build directories.
-2. This README.
-3. [`docs/system_diagram.md`](docs/system_diagram.md), rendered or exported to
-   PDF if a separate document is preferred.
-4. The short demonstration video, or a shareable video link.
-
-Before sending, test the documented Wokwi sequence from a clean terminal and
-confirm that the video link is accessible without requesting permission.
