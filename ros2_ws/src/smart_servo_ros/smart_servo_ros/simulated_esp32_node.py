@@ -1,7 +1,13 @@
+import os
 import random
+import time
+from datetime import datetime
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String, Float32
+
+from smart_servo_ros.logging_utils import write_row
 
 
 class SimulatedESP32(Node):
@@ -42,7 +48,14 @@ class SimulatedESP32(Node):
         self.last_time = self.get_clock().now()
         self.timer = self.create_timer(0.05, self.update)
 
+        self.log_dir = os.path.join(os.getcwd(), "data")
+        os.makedirs(self.log_dir, exist_ok=True)
+        self.log_path = os.path.join(self.log_dir, "latest.csv")
+        if os.path.exists(self.log_path):
+            os.remove(self.log_path)
+
         self.get_logger().info("Pure ROS ESP32 simulation started")
+        self.get_logger().info(f"Logging to {self.log_path}")
         self.get_logger().info(
             f"Hidden real endpoints: closed={self.closed_real:.2f}, open={self.open_real:.2f}"
         )
@@ -178,6 +191,20 @@ class SimulatedESP32(Node):
         torque_msg = Float32()
         torque_msg.data = float(torque)
         self.torque_pub.publish(torque_msg)
+
+        write_row(
+            self.log_path,
+            {
+                "time": time.time(),
+                "servo_deg": self.servo_angle,
+                "door_deg": self.door_angle,
+                "torque": torque,
+                "speed": self.speed,
+                "direction": self.direction,
+                "calibrated": int(self.calibrated),
+                "detecting": int(self.detecting),
+            },
+        )
 
 
 def main():

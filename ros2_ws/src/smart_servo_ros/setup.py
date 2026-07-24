@@ -28,6 +28,7 @@ setup(
             "simulated_esp32_node = smart_servo_ros.simulated_esp32_node:main",
             "rviz_visualizer = smart_servo_ros.rviz_visualizer:main",
             "tcp_bridge = smart_servo_ros.tcp_bridge:main",
+            "plot_logs = smart_servo_ros.plot_logs:main",
         ],
     },
 )

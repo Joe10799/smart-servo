@@ -134,13 +134,8 @@ def main():
             rclpy.spin_once(node, timeout_sec=0.01)
 
     finally:
-        if rclpy.ok():
-            node.direction = 0
-            node.publish_velocity()
-            rclpy.spin_once(node, timeout_sec=0.05)
         node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+        rclpy.shutdown()
 
 
 if __name__ == "__main__":
